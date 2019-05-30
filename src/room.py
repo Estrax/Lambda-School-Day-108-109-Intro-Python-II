@@ -14,4 +14,7 @@ class Room:
         self.items = []
 
     def __str__(self):
-        return f'{self.name}\n{textwrap.fill(self.description, width=50)}'
+        return f'{self.name}\n{textwrap.fill(self.description, width=50)}\n\nPossible directions: {self.get_available_directions()}'
+
+    def get_available_directions(self):
+        return list(filter(lambda x: getattr(self, f'{x}_to') != None, ['n', 's', 'e', 'w']))
