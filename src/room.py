@@ -22,6 +22,9 @@ class Room:
     def get_items_list(self):
         return str([item.name for item in self.items])
 
+    def get_item(self, item_name):
+        return list(filter(lambda x: x.name == item_name, self.items))
+
     def add_item(self, item):
         self.items.append(item)
 
